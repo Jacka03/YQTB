@@ -1,4 +1,7 @@
 # 解析数据，生成提交formData
+from index import logger
+
+
 class Parser1:
     def __init__(self, data):
         self.item_keys = {'_VAR_EXECUTE_INDEP_ORGANIZE_Name': None, '_VAR_ACTION_REALNAME': None,
@@ -65,7 +68,9 @@ class Parser1:
         self.data = data
 
     def _finditem(self, obj, key):
-        if key in obj: return obj[key]
+        if key in obj:
+            return obj[key]
+
         for k, v in obj.items():
             if isinstance(v, dict):
                 item = self._finditem(v, key)
@@ -88,6 +93,7 @@ class Parser1:
         return data
 
     def get(self):
+
         post_data1 = self.getData()
         post_data2 = {
             'fieldJBXXbz_Attr': {"_parent": ""},
@@ -119,6 +125,9 @@ class Parser1:
             'fieldJBXXcsny': '',
             'fieldSTQKfrsj': '',
             'fieldSTQKglkssj': '',
+            'fieldJKMsfwlm': '1',  # 健康码是否为绿码 1：是 2：否； 若选择否还需要上传健康码截图
+            'fieldYQJLsfjcqtbl': '2',  # 是否接触过半个月内有疫情重点地区旅居史的人员 1: 是 2: 否
+            'fieldCXXXsftjhb': '2',  # 半个月内是否到过内疫情重点地区 1: 是 2: 否
             'fieldCNS': True,
         }
         post_data_info = dict(post_data1, **post_data2)
