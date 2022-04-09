@@ -128,6 +128,7 @@ class Parser1:
             'fieldJKMsfwlm': '1',  # 健康码是否为绿码 1：是 2：否； 若选择否还需要上传健康码截图
             'fieldYQJLsfjcqtbl': '2',  # 是否接触过半个月内有疫情重点地区旅居史的人员 1: 是 2: 否
             'fieldCXXXsftjhb': '2',  # 半个月内是否到过内疫情重点地区 1: 是 2: 否
+            'fieldSTQKbrstzk1': '1',  # 本人身体状况
             'fieldCNS': True,
         }
         post_data_info = dict(post_data1, **post_data2)
